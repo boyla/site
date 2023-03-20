@@ -274,18 +274,18 @@
             }
             var op = cur + step;
             var log = "id: " + id + ", op:" + op;
-            if (op <= 0) {
+            if (op < 0) {
                 window.clearInterval(t);
                 // console.log("clear, " + log);
                 return;
             }
-            if (op >= 1) {
+            if (op > 1) {
                 window.clearInterval(t);
                 // console.log("clear, " + log);
                 return;
             }
             div.style.opacity = op;
-            // console.log("set, " + log);
+            console.log("set, " + log);
         }
 
         var slideAction = setInterval(fade, 10000);
