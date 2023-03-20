@@ -8,7 +8,7 @@
     <style>
         .corp_name {
             color: rgb(30, 80, 174);
-            font-size: 35px;
+            font-size: 0.38rem;
             height: 140px;
             line-height: 140px;
             width: 40%;
@@ -42,7 +42,7 @@
 
         .topnav a {
             float: left;
-            color: black;
+            color: rgba(0, 0, 0, 0.75);
             height: 140px;
             line-height: 140px;
             display: inline-block;
@@ -50,7 +50,7 @@
             padding-left: 20px;
             padding-right: 20px;
             text-decoration: none;
-            font-size: 19px;
+            font-size: 0.22rem;
         }
 
         .topnav a:hover {
@@ -59,7 +59,7 @@
             color: rgb(30, 80, 174);
         }
 
-        .pager {
+        #pager {
             height: 720px;
             margin-top: 140px;
         }
@@ -70,8 +70,7 @@
             top: 140px;
             left: 0;
             opacity: 1;
-
-            display: flex; /**/
+            display: flex;
             justify-content: center; /*水平居中*/
             align-items: Center; /*垂直居中*/
         }
@@ -82,6 +81,9 @@
             top: 140px;
             left: 0;
             opacity: 0;
+            display: flex;
+            justify-content: center; /*水平居中*/
+            align-items: Center; /*垂直居中*/
         }
 
         .overlay-pager-1 {
@@ -93,22 +95,51 @@
             z-index: 1;
             color: white;
         }
+
+        .overlay-pager-2 {
+            position: absolute;
+            top: 50%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            text-align: left;
+            z-index: 1;
+            color: white;
+        }
+
         @font-face {
             font-family: 'slogan_1';
             src: url(./font/slogan_1.ttf);
         }
+
         @font-face {
             font-family: 'slogan_1_en';
             src: url(./font/slogan_1_en.ttf);
         }
+
         .overlay-pager-1-uptxt {
             font-size: 32px;
             font-family: 'slogan_1_en';
         }
+
         .overlay-pager-1-downtxt {
             font-size: 60px;
             font-family: 'slogan_1';
         }
+
+        .overlay-pager-2-downtxt {
+            font-size: 37px;
+            font-weight: bold;
+            line-height: 0px;
+        }
+
+        .overlay-pager-2-uptxt {
+            font-size: 110px;
+            font-weight: bold;
+            font-style: italic;
+            src: url(./font/slogan_1_en.ttf);
+            line-height: 110px;
+        }
+
         .content {
             padding: 50px;
             height: 200px;
@@ -153,17 +184,20 @@
             <a href="#">联系方式</a>
         </div>
     </div>
-    <div class="pager">
+    <div id="pager">
         <div id="pager_item_1" style="width: 100%">
             <img src="./img/pager_1.jpg" style="width: 100%;height: 720px">
             <div class="overlay-pager-1">
-                <span class="overlay-pager-1-uptxt">HONEST&nbsp;&nbsp;&nbsp;COOPERATIION&nbsp;&nbsp;&nbsp;AND&nbsp;&nbsp;&nbsp;RESPONSIBLE&nbsp;&nbsp;&nbsp;RETURN</span><br><br>
+                <span class="overlay-pager-1-uptxt">HONEST&nbsp;&nbsp;&nbsp;COOPERATIION&nbsp;&nbsp;&nbsp;AND&nbsp;&nbsp;&nbsp;RESPONSIBLE&nbsp;&nbsp;&nbsp;RETURN</span><br>
                 <span class="overlay-pager-1-downtxt">诚信&nbsp;合作&nbsp;守责&nbsp;回报</span>
             </div>
         </div>
         <div id="pager_item_2" style="width: 100%">
             <img src="./img/pager_2.webp" style="width: 100%;height: 720px">
-            <h2 class="slogan1">HONEST COOPERATIION</h2>
+            <div class="overlay-pager-2" style="width: 100%">
+                <span class="overlay-pager-2-uptxt">FUTURE<br>BUILDER</span>
+                <span class="overlay-pager-2-downtxt"><br>向阳而生&nbsp;共筑未来</span>
+            </div>
         </div>
     </div>
     <div class="content">
@@ -179,6 +213,23 @@
         <p>这里可以展示公司的联系方式、地址、邮箱等信息。</p>
     </div>
 </div>
+<script TYPE="text/javascript">
+    var docEl = document.documentElement;
+
+    function setRemUnit() {
+        var rem = docEl.clientWidth / 19.2; // 可根据不同电脑分辨率进行手动修改（如1920*1080 为19.2
+        docEl.style.fontSize = rem + 'px'
+    }
+
+    setRemUnit();
+    window.addEventListener('resize', setRemUnit);
+    window.addEventListener('pageshow', function (e) {
+        if (e.persisted) {
+            setRemUnit()
+        }
+    });
+</script>
+
 <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
 <!-- production version, optimized for size and speed -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -238,13 +289,13 @@
         }
 
         var slideAction = setInterval(fade, 10000);
-        // pager.οnmοuseοver = function () {
-        //     clearInterval(slideAction); //当鼠标移入时清除轮播事件
-        // }
-        // pager.οnmοuseοut = function () {
-        //     clearInterval(slideAction);
-        //     slideAction = setInterval(fade, 10000); //当鼠标移出时重新开始轮播事件
-        // }
+        pager.onmouseover = function () {
+            clearInterval(slideAction); //当鼠标移入时清除轮播事件
+        }
+        pager.onmouseout = function () {
+            clearInterval(slideAction);
+            slideAction = setInterval(fade, 10000); //当鼠标移出时重新开始轮播事件
+        }
     }
 
     setTimeout("autoSlide()", 1000);
