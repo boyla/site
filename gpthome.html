@@ -180,7 +180,7 @@
         .content-profile-float {
             position: absolute;
             width: 40%;
-            height: 150px;
+            height: 120px;
             margin-top: 205px;
             z-index: 2;
             box-shadow: 3px 3px 50px rgba(0, 0, 0, .2);
@@ -253,23 +253,36 @@
             line-height: 35px;
         }
 
-        .content-news-txt_info {
+        .content-news-row {
             width: 100%;
-            font-size: 14px;
-            margin-bottom: 50px;
-            font-weight: bold;
-            text-align: right;
-            color:black;
+            display: flex;
+            flex-direction: row;
+            margin-top: 80px;
         }
 
-        .content {
-            padding: 50px;
-            height: 200px;
-            background-color: white;
-            margin-top: 30px;
-            text-align: center;
-            font-size: 24px;
-            line-height: 40px;
+        .content-news-grid-item-txt-info {
+            font-size: 14px;
+            color: rgb(102, 102, 102);
+        }
+
+        .content-news-txt-more {
+            width: 100%;
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: right;
+            color: black;
+        }
+
+        .content-news-a {
+            font-size: 16px;
+            color: rgba(102, 102, 102, 1);
+            text-decoration: none;
+        }
+
+        .content-news-a:hover {
+            color: dodgerblue;
         }
 
         /* 小圆点样式 */
@@ -297,13 +310,13 @@
 
     <div class="topnav">
         <div class="corp_name">
-            <span>{{site_name}}</span>
+            <span>中锦浩泰建设集团有限公司</span>
         </div>
         <div class="navli">
             <a href="#pager" onclick="scrollDown()">首页</a>
             <a href="#profifle" onclick="scrollDown()">公司简介</a>
             <a href="#area" onclick="scrollDown()">业务范围</a>
-            <a href="#news" onclick="scrollDown()">最新动态</a>
+            <a href="#news" onclick="scrollDown()">新闻资讯</a>
             <a href="#contact" onclick="scrollDown()">联系我们</a>
         </div>
     </div>
@@ -373,31 +386,88 @@
         </div>
     </div>
 
-    <div class="content-business" id="news">
+    <div class="content-business" id="news" style="background-color: white">
         <span class="content-business-txt_title">NEWS AND INFORMATION<br></span>
         <span class="content-business-txt_title">新闻资讯<br></span>
-        <a href="#" class="content-news-txt_info">MORE<br><br></a>
-        <div class="content-business-item-outer">
-            <div class="content-business-item" style="background-image: url('./img/area0.jpg')">
-                <span class="content-business-item-overlay-txt">地产类金融服务<br><br>——<br>REAL<br>ESTATE</span>
-            </div>
-            <div class="content-business-item" style="background-image: url('./img/area1.jpg')">
-                <span class="content-business-item-overlay-txt">项目咨询<br><br>——<br>PROJECT<br>SERVICE</span>
-            </div>
-            <div class="content-business-item" style="background-image: url('./img/area2.jpg')">
-                <span class="content-business-item-overlay-txt">招投标<br><br>——<br>TENDER<br>AND<br>BID</span>
-            </div>
-            <div class="content-business-item" style="background-image: url('./img/area3.jpg')">
-                <span class="content-business-item-overlay-txt">其他服务<br><br>——<br>OTHER<br>SERVICE</span>
+        <a href="#" class="content-news-txt-more">MORE<br><br></a>
+
+        <div class="content-news-row">
+            <div style="display: flex;flex-direction: row">
+
+                <div style="display: flex;flex-direction: row;width: 45%">
+                    <div style="display: flex;flex-direction: column">
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">2/11</span>
+                        <span style="font-size: 14px;color: #575757;line-height: 33px">2023</span>
+                    </div>
+                    <div style="display: flex;flex-direction: column;margin-left: 4%">
+                        <a href="#" class="content-news-a">美国国债是什么？不太明白的一起来了解下<br><br></a>
+                        <span class="content-news-grid-item-txt-info">美国的政府债券其实就是美国政府发行的借据 投资者们常购买的金融产品是股票、债券还有基金。 自从美国债券发行以来，...</span>
+                    </div>
+                </div>
+
+                <div style="width: 10%"></div>
+
+                <div style="display: flex;flex-direction: row;width: 45%">
+                    <div style="display: flex;flex-direction: column">
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">2/11</span>
+                        <span style="font-size: 14px;color: #575757;line-height: 33px">2023</span>
+                    </div>
+                    <div style="display: flex;flex-direction: column;margin-left: 4%">
+                        <a href="#" class="content-news-a">美国国债是什么？不太明白的一起来了解下<br><br></a>
+                        <span class="content-news-grid-item-txt-info">美国的政府债券其实就是美国政府发行的借据 投资者们常购买的金融产品是股票、债券还有基金。 自从美国债券发行以来，...</span>
+                    </div>
+                </div>
+
             </div>
         </div>
+        <!--second row-->
+        <div class="content-news-row">
+            <div style="display: flex;flex-direction: row">
+
+                <div style="display: flex;flex-direction: row;width: 45%">
+                    <div style="display: flex;flex-direction: column">
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">2/11</span>
+                        <span style="font-size: 14px;color: #575757;line-height: 33px">2023</span>
+                    </div>
+                    <div style="display: flex;flex-direction: column;margin-left: 4%">
+                        <a href="#" class="content-news-a">美国国债是什么？不太明白的一起来了解下<br><br></a>
+                        <span class="content-news-grid-item-txt-info">美国的政府债券其实就是美国政府发行的借据 投资者们常购买的金融产品是股票、债券还有基金。 自从美国债券发行以来，...</span>
+                    </div>
+                </div>
+
+                <div style="width: 10%"></div>
+
+                <div style="display: flex;flex-direction: row;width: 45%">
+                    <div style="display: flex;flex-direction: column">
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">2/11</span>
+                        <span style="font-size: 14px;color: #575757;line-height: 33px">2023</span>
+                    </div>
+                    <div style="display: flex;flex-direction: column;margin-left: 4%">
+                        <a href="#" class="content-news-a">美国国债是什么？不太明白的一起来了解下<br><br></a>
+                        <span class="content-news-grid-item-txt-info">美国的政府债券其实就是美国政府发行的借据 投资者们常购买的金融产品是股票、债券还有基金。 自从美国债券发行以来，...</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-        <h1>联系方式</h1>
-        <p>这里可以展示公司的联系方式、地址、邮箱等信息。</p>
-    </div>
-    <div class="content" id="contact">
-        <h1>联系方式</h1>
-        <p>这里可以展示公司的联系方式、地址、邮箱等信息。</p>
+
+    <div class="content-business" id="contact"
+         style="height:500px;background-color: rgb(34,34,34);flex-direction: row;width: 100%;padding-left: 0%;padding-right: 0%">
+        <div style="display:flex;flex-direction: column;width: 40%;align-items: Center;justify-content: center;">
+            <span style="font-size: 30px;color: rgb(229,229,229);line-height: 33px">中锦浩泰建设集团有限公司<br><br></span>
+            <span style="font-size: 14px;color: rgb(217,217,217);line-height: 18px">24小时服务热线<br><br></span>
+            <span style="font-size: 36px;color: rgb(7,108,224);font-weight: 700">020-000000</span>
+        </div>
+        <div style="display:flex;flex-direction: column;width: 30%;;justify-content: center;">
+            <span style="font-size: 14px;color: #575757;line-height: 33px">联系邮箱<br>xxx@,co.m</span><br>
+            <span style="font-size: 14px;color: #575757;line-height: 33px">联系电话<br>020-000000 000-000000</span>
+        </div>
+        <div style="display:flex;flex-direction: column;width: 30%;;justify-content: center;">
+            <span style="font-size: 14px;color: #575757;line-height: 33px">联系地址<br>xxx省xxx市xxx县xxx路xxx号</span><br>
+            <span style="font-size: 14px;color: #575757;line-height: 33px">联系QQ<br>177488228</span>
+        </div>
     </div>
 </div>
 <script TYPE="text/javascript">
@@ -416,7 +486,6 @@
         }
     });
 </script>
-
 <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
 <!-- production version, optimized for size and speed -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -492,6 +561,7 @@
         window.scrollBy({"behavior": "smooth", "top": -135});
         console.log("scrollTo top");
     }
+
     function scrollDown() {
         setTimeout("scrollDownInner()", 0);
     }
