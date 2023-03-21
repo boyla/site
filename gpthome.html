@@ -107,7 +107,11 @@
         }
 
         /*屏幕宽度小于max,执行display配置*/
-        @media (max-width: 768px){body{display:none;}}
+        /*@media (max-width: 768px) {*/
+        /*    body {*/
+        /*        display: none;*/
+        /*    }*/
+        /*}*/
 
         @font-face {
             font-family: 'slogan_1';
@@ -580,6 +584,18 @@
             }
         }
     })
+</script>
+<script type="text/javascript">
+    var screenwidth = window.screen.width;
+    var screenheight = window.screen.height;
+    console.log(`
+		  设备像素比：${window.devicePixelRatio}，
+	      屏幕的宽度为：${screenwidth},
+	      屏幕的高度为：${screenheight}
+	    `)
+    var hide = screenwidth / screenheight < 1;
+    var app = document.getElementById('app');
+    app.style.visibility = hide ? 'hidden' : 'visible';
 </script>
 </body>
 </html>
