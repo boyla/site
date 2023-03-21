@@ -203,7 +203,7 @@
             color: rgb(30, 80, 174);
         }
 
-        .content-area {
+        .content-business {
             width: 80%;
             height: 750px;
             display: flex;
@@ -215,12 +215,12 @@
             flex-direction: column;
         }
 
-        .content-area-txt_title {
+        .content-business-txt_title {
             width: 100%;
             font-size: 32px;
         }
 
-        .content-area-txt_info {
+        .content-business-txt_info {
             width: 100%;
             font-size: 14px;
             margin-bottom: 50px;
@@ -228,7 +228,7 @@
             color: rgb(102, 102, 102);
         }
 
-        .content-area-item-outer {
+        .content-business-item-outer {
             width: 100%;
             height: 415px;
             display: flex;
@@ -236,7 +236,7 @@
             justify-content: space-between;
         }
 
-        .content-area-item {
+        .content-business-item {
             width: 270px;
             height: 415px;
             display: flex;
@@ -244,13 +244,22 @@
             flex-direction: column;
         }
 
-        .content-area-item-overlay-txt {
+        .content-business-item-overlay-txt {
             margin-top: 30px;
             margin-left: 25px;
             z-index: 1;
             font-size: 22px;
             color: white;
             line-height: 35px;
+        }
+
+        .content-news-txt_info {
+            width: 100%;
+            font-size: 14px;
+            margin-bottom: 50px;
+            font-weight: bold;
+            text-align: right;
+            color:black;
         }
 
         .content {
@@ -295,7 +304,7 @@
             <a href="#profifle" onclick="scrollDown()">公司简介</a>
             <a href="#area" onclick="scrollDown()">业务范围</a>
             <a href="#news" onclick="scrollDown()">最新动态</a>
-            <a href="#contact" onclick="scrollDown()">联系方式</a>
+            <a href="#contact" onclick="scrollDown()">联系我们</a>
         </div>
     </div>
 
@@ -308,7 +317,7 @@
             </div>
         </div>
         <div id="pager_item_2" style="width: 100%">
-            <img src="img/pager_2.jpg" style="width: 100%;height: 720px">
+            <img src="./img/pager_2.jpg" style="width: 100%;height: 720px">
             <div class="overlay-pager-2">
                 <span class="overlay-pager-2-uptxt">FUTURE<br>BUILDER</span>
                 <span class="overlay-pager-2-downtxt"><br>向阳而生&nbsp;共筑未来</span>
@@ -323,7 +332,7 @@
             <span class="profile-txt-detail">集团注册资本xx亿元，总资产规模xx亿元，下属全资、控股企业xx家。集团在发展过程中经历了城市化建设、多元化发展、集团化运营、战略化布局等四个历史阶段，公司业务包括投资管理、股权投资和金融服务等；公司正在逐步布局全国，致力于为投资人和我们所投的项目，创造积极的经济影响和有价值的回报.</span>
         </div>
         <div class="content-profile-r">
-            <img src="img/profile.jpg" style="width: 500px;height: 500px">
+            <img src="./img/profile.jpg" style="width: 500px;height: 500px">
         </div>
         <div class="content-profile-float">
             <div class="profile-txt-float-normal">
@@ -344,24 +353,47 @@
         </div>
     </div>
 
-    <div class="content-area" id="area">
-        <span class="content-area-txt_title">BUSINESS SCOPE<br></span>
-        <span class="content-area-txt_title">业务范围<br></span>
-        <span class="content-area-txt_info">深度融合国内外大型银行、信托，以创新模式服务地产金融生态链<br><br></span>
-        <div class="content-area-item-outer">
-            <div class="content-area-item" style="background-image: url('./img/area0.jpg')">
-                <span class="content-area-item-overlay-txt">地产类金融服务<br><br>-<br>REAL<br>ESTATE</span>
+    <div class="content-business" id="area">
+        <span class="content-business-txt_title">BUSINESS SCOPE<br></span>
+        <span class="content-business-txt_title">业务范围<br></span>
+        <span class="content-business-txt_info">深度融合国内外大型银行、信托，以创新模式服务地产金融生态链<br><br></span>
+        <div class="content-business-item-outer">
+            <div class="content-business-item" style="background-image: url('./img/area0.jpg')">
+                <span class="content-business-item-overlay-txt">地产类金融服务<br><br>——<br>REAL<br>ESTATE</span>
             </div>
-            <div class="content-area-item" style="background-image: url('./img/area1.jpg')">
-                <span class="content-area-item-overlay-txt">项目咨询<br><br>-<br>PROJECT<br>SERVICE</span>
+            <div class="content-business-item" style="background-image: url('./img/area1.jpg')">
+                <span class="content-business-item-overlay-txt">项目咨询<br><br>——<br>PROJECT<br>SERVICE</span>
             </div>
-            <div class="content-area-item" style="background-image: url('./img/area2.jpg')">
-                <span class="content-area-item-overlay-txt">招投标<br><br>-<br>TENDER<br>AND<br>BID</span>
+            <div class="content-business-item" style="background-image: url('./img/area2.jpg')">
+                <span class="content-business-item-overlay-txt">招投标<br><br>——<br>TENDER<br>AND<br>BID</span>
             </div>
-            <div class="content-area-item" style="background-image: url('./img/area3.jpg')">
-                <span class="content-area-item-overlay-txt">其他服务<br><br>-<br>OTHER<br>SERVICE</span>
+            <div class="content-business-item" style="background-image: url('./img/area3.jpg')">
+                <span class="content-business-item-overlay-txt">其他服务<br><br>——<br>OTHER<br>SERVICE</span>
             </div>
         </div>
+    </div>
+
+    <div class="content-business" id="news">
+        <span class="content-business-txt_title">NEWS AND INFORMATION<br></span>
+        <span class="content-business-txt_title">新闻资讯<br></span>
+        <a href="#" class="content-news-txt_info">MORE<br><br></a>
+        <div class="content-business-item-outer">
+            <div class="content-business-item" style="background-image: url('./img/area0.jpg')">
+                <span class="content-business-item-overlay-txt">地产类金融服务<br><br>——<br>REAL<br>ESTATE</span>
+            </div>
+            <div class="content-business-item" style="background-image: url('./img/area1.jpg')">
+                <span class="content-business-item-overlay-txt">项目咨询<br><br>——<br>PROJECT<br>SERVICE</span>
+            </div>
+            <div class="content-business-item" style="background-image: url('./img/area2.jpg')">
+                <span class="content-business-item-overlay-txt">招投标<br><br>——<br>TENDER<br>AND<br>BID</span>
+            </div>
+            <div class="content-business-item" style="background-image: url('./img/area3.jpg')">
+                <span class="content-business-item-overlay-txt">其他服务<br><br>——<br>OTHER<br>SERVICE</span>
+            </div>
+        </div>
+    </div>
+        <h1>联系方式</h1>
+        <p>这里可以展示公司的联系方式、地址、邮箱等信息。</p>
     </div>
     <div class="content" id="contact">
         <h1>联系方式</h1>
