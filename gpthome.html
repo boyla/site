@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>卓凯建筑工程有限公司</title>
+    <title>中锦浩泰建设集团有限公司</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"/>
@@ -128,8 +128,8 @@
 
         .overlay-pager-2-downtxt {
             font-size: 37px;
-            font-weight: bold;
             line-height: 0px;
+            font-family: 'slogan_1';
         }
 
         .overlay-pager-2-uptxt {
@@ -182,7 +182,7 @@
             width: 40%;
             height: 150px;
             margin-top: 205px;
-            z-index: 999;
+            z-index: 2;
             box-shadow: 3px 3px 50px rgba(0, 0, 0, .2);
             background: #FAFAFA;
             border-radius: 20px 20px 20px 20px;
@@ -204,12 +204,53 @@
         }
 
         .content-area {
-            width: 100%;
-            height: 820px;
+            width: 80%;
+            height: 750px;
             display: flex;
+            padding-left: 10%;
+            padding-right: 10%;
             align-items: Center; /*垂直居中*/
             justify-content: center; /*水平居中*/
             background: #f1f1f1;
+            flex-direction: column;
+        }
+
+        .content-area-txt_title {
+            width: 100%;
+            font-size: 32px;
+        }
+
+        .content-area-txt_info {
+            width: 100%;
+            font-size: 14px;
+            margin-bottom: 50px;
+            text-align: right;
+            color: rgb(102, 102, 102);
+        }
+
+        .content-area-item-outer {
+            width: 100%;
+            height: 415px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .content-area-item {
+            width: 270px;
+            height: 415px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+        }
+
+        .content-area-item-overlay-txt {
+            margin-top: 30px;
+            margin-left: 25px;
+            z-index: 1;
+            font-size: 22px;
+            color: white;
+            line-height: 35px;
         }
 
         .content {
@@ -251,9 +292,10 @@
         </div>
         <div class="navli">
             <a href="#pager" onclick="scrollDown()">首页</a>
-            <a href="#profifle">公司简介</a>
-            <a href="#area">业务范围</a>
-            <a href="#contact">联系方式</a>
+            <a href="#profifle" onclick="scrollDown()">公司简介</a>
+            <a href="#area" onclick="scrollDown()">业务范围</a>
+            <a href="#news" onclick="scrollDown()">最新动态</a>
+            <a href="#contact" onclick="scrollDown()">联系方式</a>
         </div>
     </div>
 
@@ -303,8 +345,23 @@
     </div>
 
     <div class="content-area" id="area">
-        <h1>业务范围</h1>
-        <p>这里可以列出公司的主营业务、配套服务、合作伙伴等信息。</p>
+        <span class="content-area-txt_title">BUSINESS SCOPE<br></span>
+        <span class="content-area-txt_title">业务范围<br></span>
+        <span class="content-area-txt_info">深度融合国内外大型银行、信托，以创新模式服务地产金融生态链<br><br></span>
+        <div class="content-area-item-outer">
+            <div class="content-area-item" style="background-image: url('./img/area0.jpg')">
+                <span class="content-area-item-overlay-txt">地产类金融服务<br><br>-<br>REAL<br>ESTATE</span>
+            </div>
+            <div class="content-area-item" style="background-image: url('./img/area1.jpg')">
+                <span class="content-area-item-overlay-txt">项目咨询<br><br>-<br>PROJECT<br>SERVICE</span>
+            </div>
+            <div class="content-area-item" style="background-image: url('./img/area2.jpg')">
+                <span class="content-area-item-overlay-txt">招投标<br><br>-<br>TENDER<br>AND<br>BID</span>
+            </div>
+            <div class="content-area-item" style="background-image: url('./img/area3.jpg')">
+                <span class="content-area-item-overlay-txt">其他服务<br><br>-<br>OTHER<br>SERVICE</span>
+            </div>
+        </div>
     </div>
     <div class="content" id="contact">
         <h1>联系方式</h1>
@@ -399,16 +456,19 @@
     setTimeout("autoSlide()", 1000);
 </script>
 <script>
-    function scrollDown(){
-        window.scrollTo({"behavior": "smooth", "top": 1000});
+    function scrollDownInner() {
+        window.scrollBy({"behavior": "smooth", "top": -135});
         console.log("scrollTo top");
+    }
+    function scrollDown() {
+        setTimeout("scrollDownInner()", 0);
     }
 </script>
 <script>
     var app = new Vue({
         el: "#app",
         data: {
-            site_name: "卓凯建筑工程有限公司"
+            site_name: "中锦浩泰建设集团有限公司"
         },
         methods: {
             getM: function () {
