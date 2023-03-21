@@ -106,11 +106,8 @@
             color: white;
         }
 
-        @media (min-width: 600px) {
-            #app {
-                display: none;
-            }
-        }
+        /*屏幕宽度小于max,执行display配置*/
+        @media (max-width: 768px){body{display:none;}}
 
         @font-face {
             font-family: 'slogan_1';
