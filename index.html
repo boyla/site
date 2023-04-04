@@ -276,7 +276,6 @@
             width: 100%;
             font-size: 22px;
             margin-bottom: 25px;
-            text-decoration: none;
             font-weight: bold;
             text-align: right;
             color: black;
@@ -312,7 +311,7 @@
 
     </style>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script type = "text/javascript" src = "news.js" ></script>
+    <script type="text/javascript" src="news.js"></script>
 </head>
 <body>
 <div id="app">
@@ -398,31 +397,32 @@
     <div class="content-business" id="news" style="background-color: white">
         <span class="content-business-txt_title">NEWS AND INFORMATION<br></span>
         <span class="content-business-txt_title">新闻资讯<br></span>
-        <a href="#" class="content-news-txt-more">MORE<br><br></a>
-
+        <div class="content-news-txt-more">
+            <a href="article_list.html" style="text-decoration: none;font-size: 22px;font-weight: bold;color: black;">MORE<br><br></a>
+        </div>
         <div class="content-news-row">
             <div style="display: flex;flex-direction: row;width: 100%">
                 <div style="display: flex;flex-direction: row;width: 45%" v-if="news[0]">
                     <div style="display: flex;flex-direction: column">
-                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">{{news[0].publish_time.split(" ")[0].split("-")[1]+"/"+news[0].publish_time.split(" ")[0].split("-")[2]}}</span>
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">{{news[0].publish_time.split(" ")[0].split("-")[1] + "/" + news[0].publish_time.split(" ")[0].split("-")[2]}}</span>
                         <span style="font-size: 14px;color: #575757;line-height: 33px">{{news[0].publish_time.split(" ")[0].split("-")[0]}}</span>
                     </div>
                     <div style="display: flex;flex-direction: column;margin-left: 4%">
-                        <a href="#" class="content-news-a">{{news[0].publish_title}}<br><br></a>
-                        <span class="content-news-grid-item-txt-info" >{{news[0].publish_content.substring(0,65)+"..."}}</span>
+                        <a href="article.html?index=0" class="content-news-a">{{news[0].publish_title}}<br><br></a>
+                        <span class="content-news-grid-item-txt-info">{{news[0].publish_content.substring(0, 65) + "..."}}</span>
                     </div>
                 </div>
 
                 <div style="width: 10%"></div>
 
-                <div style="display: flex;flex-direction: row;width: 45%">
+                <div style="display: flex;flex-direction: row;width: 45%" v-if="news[1]">
                     <div style="display: flex;flex-direction: column">
-                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">2/11</span>
-                        <span style="font-size: 14px;color: #575757;line-height: 33px">2023</span>
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">{{news[1].publish_time.split(" ")[0].split("-")[1] + "/" + news[1].publish_time.split(" ")[0].split("-")[2]}}</span>
+                        <span style="font-size: 14px;color: #575757;line-height: 33px">{{news[1].publish_time.split(" ")[0].split("-")[0]}}</span>
                     </div>
                     <div style="display: flex;flex-direction: column;margin-left: 4%">
-                        <a href="#" class="content-news-a">美国国债是什么？不太明白的一起来了解下<br><br></a>
-                        <span class="content-news-grid-item-txt-info">美国的政府债券其实就是美国政府发行的借据 投资者们常购买的金融产品是股票、债券还有基金。 自从美国债券发行以来，...</span>
+                        <a href="article.html?index=1" class="content-news-a">{{news[1].publish_title}}<br><br></a>
+                        <span class="content-news-grid-item-txt-info">{{news[1].publish_content.substring(0, 65) + "..."}}</span>
                     </div>
                 </div>
 
@@ -432,27 +432,27 @@
         <div class="content-news-row">
             <div style="display: flex;flex-direction: row;width: 100%">
 
-                <div style="display: flex;flex-direction: row;width: 45%">
+                <div style="display: flex;flex-direction: row;width: 45%" v-if="news[2]">
                     <div style="display: flex;flex-direction: column">
-                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">2/11</span>
-                        <span style="font-size: 14px;color: #575757;line-height: 33px">2023</span>
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">{{news[2].publish_time.split(" ")[0].split("-")[1] + "/" + news[2].publish_time.split(" ")[0].split("-")[2]}}</span>
+                        <span style="font-size: 14px;color: #575757;line-height: 33px">{{news[2].publish_time.split(" ")[0].split("-")[0]}}</span>
                     </div>
                     <div style="display: flex;flex-direction: column;margin-left: 4%">
-                        <a href="#" class="content-news-a">美国国债是什么？不太明白的一起来了解下<br><br></a>
-                        <span class="content-news-grid-item-txt-info">美国的政府债券其实就是美国政府发行的借据 投资者们常购买的金融产品是股票、债券还有基金。 自从美国债券发行以来，...</span>
+                        <a href="article.html?index=2" class="content-news-a">{{news[2].publish_title}}<br><br></a>
+                        <span class="content-news-grid-item-txt-info">{{news[2].publish_content.substring(0, 65) + "..."}}</span>
                     </div>
                 </div>
 
                 <div style="width: 10%"></div>
 
-                <div style="display: flex;flex-direction: row;width: 45%">
+                <div style="display: flex;flex-direction: row;width: 45%" v-if="news[3]">
                     <div style="display: flex;flex-direction: column">
-                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">2/11</span>
-                        <span style="font-size: 14px;color: #575757;line-height: 33px">2023</span>
+                        <span style="font-size: 28px;color:black;font-weight: 400;line-height: 23px">{{news[3].publish_time.split(" ")[0].split("-")[1] + "/" + news[3].publish_time.split(" ")[0].split("-")[2]}}</span>
+                        <span style="font-size: 14px;color: #575757;line-height: 33px">{{news[3].publish_time.split(" ")[0].split("-")[0]}}</span>
                     </div>
                     <div style="display: flex;flex-direction: column;margin-left: 4%">
-                        <a href="#" class="content-news-a">美国国债是什么？不太明白的一起来了解下<br><br></a>
-                        <span class="content-news-grid-item-txt-info">美国的政府债券其实就是美国政府发行的借据 投资者们常购买的金融产品是股票、债券还有基金。 自从美国债券发行以来，...</span>
+                        <a href="article.html?index=3" class="content-news-a">{{news[3].publish_title}}<br><br></a>
+                        <span class="content-news-grid-item-txt-info">{{news[3].publish_content.substring(0, 65) + "..."}}</span>
                     </div>
                 </div>
 
@@ -597,7 +597,7 @@
     }
 
     var param = getQueryString("index");
-    if(param){
+    if (param) {
         var paramInt = parseInt(param);
         if (paramInt > -1) {
             app.index = paramInt;
