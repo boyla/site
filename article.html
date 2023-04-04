@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新闻</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"/>
+    <style>
+        .corp_name {
+            color: rgb(30, 80, 174);
+            font-size: 0.36rem;
+            height: 121px;
+            line-height: 121px;
+            width: 40%;
+            text-align: -webkit-center;
+            font-weight: bold;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .topnav {
+            width: 100%;
+            background-color: white;
+            top: 0;
+            position: fixed;
+            z-index: 999;
+            float: left;
+            display: flex;
+        }
+
+        .topnav a {
+            float: left;
+            color: rgba(0, 0, 0, 0.75);
+            height: 121px;
+            line-height: 121px;
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+            font-size: 0.22rem;
+        }
+
+        a {
+            color: #444;
+        }
+
+        a:hover {
+            font-weight: bold;
+            color: rgb(30, 80, 174);
+        }
+
+        #pager {
+            height: 300px;
+            margin-top: 121px;
+        }
+
+        #pager_item_1 {
+            position: absolute; /*图片采取绝对定位，均位于左上角，重叠在一起*/
+            height: 300px;
+            top: 121px;
+            left: 0;
+            opacity: 1;
+            display: flex;
+            justify-content: center; /*水平居中*/
+            align-items: Center; /*垂直居中*/
+        }
+
+        @font-face {
+            font-family: 'slogan_1';
+            src: url(./font/slogan_1.ttf);
+        }
+
+        @font-face {
+            font-family: 'slogan_1_en';
+            src: url(./font/slogan_1_en.ttf);
+        }
+
+        .title {
+            text-align: left;
+            color: #333;
+            font-size: 25px;
+            font-weight: 400;
+        }
+
+        .content-business {
+            width: 80%;
+            height: 750px;
+            display: flex;
+            padding-left: 10%;
+            padding-right: 10%;
+            align-items: Center; /*垂直居中*/
+            justify-content: center; /*水平居中*/
+            background: #f1f1f1;
+            flex-direction: column;
+        }
+
+        /* 小圆点对应的图片被展示时，小圆点变灰 */
+        .dots .selected {
+            height: 32px;;
+        }
+    </style>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="vue2.js"></script>
+    <script src="news.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="topnav">
+        <div class="corp_name">
+            <span>中锦浩泰建设集团有限公司</span>
+        </div>
+    </div>
+
+    <div id="pager">
+        <div id="pager_item_1" style="width: 100%">
+            <img src="./img/info_header.jpg" style="width: 100%;height: 300px">
+        </div>
+    </div>
+
+    <div style="width: 80%;padding: 35px 10% 70px;">
+        <span class="title" id="publish_title" v-if="news[index]">{{news[index].publish_title}}</span>
+        <br>
+        <span id="publish_time" v-if="news[index]" style="font-size: 14px;color: #676767;">发表时间：{{news[index].publish_time}}</span>
+        <br>
+        <div style="border: 0.5px solid #f0efef;margin-top: 20px;margin-bottom: 20px"></div>
+        <div id="publish_content" v-if="news[index]"
+             style="font-size: 14px;color: #444;line-height: 30px;white-space: pre-line;">
+            {{news[index].publish_content}}
+        </div>
+        <div style="border: 0.5px solid #f0efef;margin-top: 40px;margin-bottom: 40px;"></div>
+        <div style="display: flex;flex-direction: row;width: 100%;padding-bottom: 40px">
+            <a id="prev" v-if="news[(index - 1 + news.length) % news.length]"
+               style="text-decoration: none;font-size: 14px;width: 50%" @click="prev">上一篇&nbsp;&nbsp;&nbsp;&nbsp;{{news[(index
+                - 1 + news.length) % news.length].publish_title}}</a>
+            <a id="next" v-if="news[(index + 1) % news.length]"
+               style="text-decoration: none;font-size: 14px;text-align: right;width: 50%" @click="next">下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{news[(index
+                + 1) % news.length].publish_title}}</a>
+        </div>
+    </div>
+
+    <div class="content-business" id="contact"
+         style="height:500px;background-color: rgb(34,34,34);flex-direction: row;width: 100%;padding-left: 0%;padding-right: 0%">
+        <div style="display:flex;flex-direction: column;width: 40%;align-items: Center;justify-content: center;">
+            <span style="font-size: 30px;color: rgb(229,229,229);line-height: 33px">中锦浩泰建设集团有限公司<br><br><br></span>
+            <span style="font-size: 14px;color: rgb(217,217,217);line-height: 18px">24小时服务热线<br><br><br><br></span>
+            <span style="font-size: 36px;color: rgb(7,108,224);font-weight: 700">020-000000</span>
+        </div>
+        <div style="display:flex;flex-direction: column;width: 30%;justify-content: center;">
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系邮箱<br>xxx@,co.m</span>
+            <p></p>
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系电话<br>020-000000 000-000000</span>
+        </div>
+        <div style="display:flex;flex-direction: column;width: 30%;justify-content: center;">
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系地址<br>xxx省xxx市xxx县xxx路xxx号</span>
+            <p></p>
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系QQ<br>177488228</span>
+        </div>
+    </div>
+</div>
+<script TYPE="text/javascript">
+    var docEl = document.documentElement;
+
+    function setRemUnit() {
+        var rem = docEl.clientWidth / 19.2; // 可根据不同电脑分辨率进行手动修改（如1920*1080 为19.2
+        docEl.style.fontSize = rem + 'px'
+    }
+
+    setRemUnit();
+    window.addEventListener('resize', setRemUnit);
+    window.addEventListener('pageshow', function (e) {
+        if (e.persisted) {
+            setRemUnit()
+        }
+    });
+</script>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            site_name: "中锦浩泰建设集团有限公司",
+            news_content: "loading...",
+            news: [],
+            index: 0
+        },
+        methods: {
+            next: function () {
+                var len = news.length;
+                if (len > 0) {
+                    this.index = (this.index + 1) % len;
+                    // console.log("go next");
+                    // window.location.href = "article.html?index="+this.index;
+                }
+            },
+            prev: function () {
+                var len = news.length;
+                if (len > 0) {
+                    this.index = (this.index - 1 + len) % len;
+                    // console.log("go prev");
+                }
+            }
+        }
+    })
+    const objArr = JSON.parse(localStorage.getItem('news'));
+    app.news = objArr
+
+    // console.log("Vue:" + JSON.stringify(app.news))
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = decodeURI(window.location.search).substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var param = getQueryString("index");
+    if(param){
+        var paramInt = parseInt(param);
+        if (paramInt > -1) {
+            app.index = paramInt;
+        }
+    }
+    console.log("new index:" + param);
+</script>
+<script type="text/javascript">
+    var screenwidth = window.screen.width;
+    var screenheight = window.screen.height;
+    console.log(`
+		  设备像素比：${window.devicePixelRatio}，
+	      屏幕的宽度为：${screenwidth},
+	      屏幕的高度为：${screenheight}
+	    `)
+    var hide = screenwidth / screenheight < 1;
+    var ap = document.getElementById('app');
+    ap.style.visibility = hide ? 'hidden' : 'visible';
+</script>
+</body>
+</html>

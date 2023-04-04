@@ -311,6 +311,8 @@
         }
 
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script type = "text/javascript" src = "news.js" ></script>
 </head>
 <body>
 <div id="app">
@@ -466,13 +468,15 @@
             <span style="font-size: 14px;color: rgb(217,217,217);line-height: 18px">24小时服务热线<br><br></span>
             <span style="font-size: 36px;color: rgb(7,108,224);font-weight: 700">020-000000</span>
         </div>
-        <div style="display:flex;flex-direction: column;width: 30%;;justify-content: center;">
-            <span style="font-size: 14px;color: #575757;line-height: 33px">联系邮箱<br>xxx@,co.m</span><br>
-            <span style="font-size: 14px;color: #575757;line-height: 33px">联系电话<br>020-000000 000-000000</span>
+        <div style="display:flex;flex-direction: column;width: 30%;justify-content: center;">
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系邮箱<br>xxx@,co.m</span>
+            <p></p>
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系电话<br>020-000000 000-000000</span>
         </div>
-        <div style="display:flex;flex-direction: column;width: 30%;;justify-content: center;">
-            <span style="font-size: 14px;color: #575757;line-height: 33px">联系地址<br>xxx省xxx市xxx县xxx路xxx号</span><br>
-            <span style="font-size: 14px;color: #575757;line-height: 33px">联系QQ<br>177488228</span>
+        <div style="display:flex;flex-direction: column;width: 30%;justify-content: center;">
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系地址<br>xxx省xxx市xxx县xxx路xxx号</span>
+            <p></p>
+            <span style="font-size: 14px;color: #888888;line-height: 33px">联系QQ<br>177488228</span>
         </div>
     </div>
 </div>
@@ -494,7 +498,6 @@
 </script>
 <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
 <!-- production version, optimized for size and speed -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!--轮播banner-->
 <script>
@@ -571,19 +574,6 @@
     function scrollDown() {
         setTimeout("scrollDownInner()", 0);
     }
-</script>
-<script>
-    var app = new Vue({
-        el: "#app",
-        data: {
-            site_name: "中锦浩泰建设集团有限公司"
-        },
-        methods: {
-            getM: function () {
-                alert(this.msg);
-            }
-        }
-    })
 </script>
 <script type="text/javascript">
     var screenwidth = window.screen.width;
