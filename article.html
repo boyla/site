@@ -135,10 +135,10 @@
         </div>
         <div style="border: 0.5px solid #f0efef;margin-top: 40px;margin-bottom: 40px;"></div>
         <div style="display: flex;flex-direction: row;width: 100%;padding-bottom: 40px">
-            <a id="prev" v-if="news[(index - 1 + news.length) % news.length]"
+            <a id="prev" v-if="news[(index - 1 + news.length) % news.length]" href="javascript:"
                style="text-decoration: none;font-size: 14px;width: 50%" @click="prev">上一篇&nbsp;&nbsp;&nbsp;&nbsp;{{news[(index
                 - 1 + news.length) % news.length].publish_title}}</a>
-            <a id="next" v-if="news[(index + 1) % news.length]"
+            <a id="next" v-if="news[(index + 1) % news.length]" href="javascript:"
                style="text-decoration: none;font-size: 14px;text-align: right;width: 50%" @click="next">下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{news[(index
                 + 1) % news.length].publish_title}}</a>
         </div>
@@ -219,7 +219,7 @@
     }
 
     var param = getQueryString("index");
-    if(param){
+    if (param) {
         var paramInt = parseInt(param);
         if (paramInt > -1) {
             app.index = paramInt;
